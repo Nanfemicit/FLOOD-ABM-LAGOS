@@ -1,23 +1,15 @@
-# project-alpha
-Real time climate hazard tracker
+Agent-based model for understanding how rainfall, land cover, and drainage capacity shape urban flooding in Lagos, Nigeria.
 
-Hi, I’m Ruth! This is my first real-time data project at the intersection of climate risk, sustainability, and databases.
+Every year it rains in Lagos and the impacts are disastrous. Streets flood, homes are submerged, and life pauses.
+We often aatribute it to climate change, but what about planning failures, governance gaps, and design decisions that make the city more vulnerable?
 
-Right now, I’m building this project from scratch, learning and documenting every step as I go.
+In this project, an agent-based model (ABM) built with Python will be used to see how rainfall, surface cover, and land use  interact to influence flooding patterns across Lagos.
 
-More about the “why” and my journey will be added here when I complete the first version. For now welcome to the beginning of project Alpha!
+This is my first environmental systems project using ABM to connect climate processes with urban decision-making.
+I am building it from scratch, learning and documenting each step from translating hydrologic ideas into code to visualising how small changes might reduce flood risk.
 
----
-
-## 📁 Project Structure
-
-```
-project-alpha/
-├── data/              # raw & processed data
-├── scripts/           # code scripts
-├── requirements.txt   # packages
-└── README.md
-```
+More about the “why” and insights from the simulations will be added once the first version is complete.
+For now, welcome to the beginning of the Flood Learning ABM.
 
 
 👩🏾‍💻 *Built with heart by Ruth Femicit Dala*
