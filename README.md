@@ -1,7 +1,7 @@
 Agent-based model for understanding how rainfall, land cover, and drainage capacity shape urban flooding in Lagos, Nigeria.
 
 Every year it rains in Lagos and the impacts are disastrous. Streets flood, homes are submerged, and life pauses.
-We often aatribute it to climate change, but what about planning failures, governance gaps, and design decisions that make the city more vulnerable?
+We often atribute it to climate change, but what about planning failures, governance gaps, and design decisions that make the city more vulnerable?
 
 In this project, an agent-based model (ABM) built with Python will be used to see how rainfall, surface cover, and land use  interact to influence flooding patterns across Lagos.
 
