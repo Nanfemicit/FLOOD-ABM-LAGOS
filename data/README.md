@@ -81,6 +81,17 @@ routing artifacts show up later.
 fallback), revisiting only if the DSM-vs-DTM issue visibly distorts flow
 routing once Phase 2 derives flow direction from this raster.
 
+**Note:** the raster on disk is clipped to the ward extent *plus* a 0.05
+degree buffer (see above) — that buffer deliberately extends past the
+ward boundaries for flow-routing margin. Any statistic reported as a
+property of Lagos itself (highest point, elevation range, mean elevation,
+etc.) must be computed against the raster masked to the ward union, not
+the full clipped-and-buffered raster, or the buffer zone will silently
+contaminate the number. Confirmed this the hard way: the raw max over the
+full buffered raster is 109.88m, ~23km outside any ward and almost
+certainly terrain from north of the study area; the actual max inside the
+ward union is 75.51m, in Alakuko Ajegunle ward (Ifako/Ijaye LGA).
+
 ## Rainfall (CHIRPS)
 
 *Not yet pulled.*
