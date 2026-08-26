@@ -2,7 +2,7 @@
 from mesa.visualization.modules import CanvasGrid, ChartModule
 from mesa.visualization.ModularVisualization import ModularServer
 from mesa.visualization.UserParam import UserSettableParameter
-from scripts.model import FloodModel
+from legacy.model import FloodModel
 
 def portray_cell(agent):
     m = agent.model
