@@ -79,6 +79,21 @@ Checked empirically at drain_mm=1.5 (the more constrained of the two
 tested scenarios): hop counts stayed in the same range as the uncapped
 version, no sign of the slow-convergence failure mode.
 
+Standing-depth drainage (recession): at the start of each apply_rainfall()
+call, before that day's rainfall is used at all, water_depth is reduced
+by up to drain_mm per cell, floored at zero, applied uniformly including
+at pits, with the drained amount added to exited_total_mm_cells. This is
+what fixes the previously-flagged "never recedes" gap -- water_depth can
+now go down between calls, not just up. Sequencing is deliberate: this
+happens BEFORE today's rainfall/routing/cap pipeline, not after and not
+merged with it, specifically so drain_mm isn't spent twice on the same
+day's fresh water (once here against old depth, again via the per-hop
+cap against new depth). Pits get no special-casing: this is a local,
+target-independent loss (soak-away, minor unmodeled conveyance, eventual
+pumping), not routing, so "no downhill neighbor" is irrelevant to it --
+consistent with how drain_mm was already used untargeted against fresh
+rainfall before the per-hop cap existed.
+
 Known limitation, not resolved here: infil_mm/drain_mm are still applied
 once per *daily* call as flat hourly-rate-shaped numbers, not scaled to
 a day. Less severe now that infiltration is land-cover-grounded rather
@@ -267,21 +282,41 @@ class FloodModel(mesa.Model):
 
     def apply_rainfall(self, rainfall_mm):
         """
-        One day's step: apply `rainfall_mm` (2D array, (height, width), mm,
-        a single day's CHIRPS total) as a pulse, run infiltration + drainage
+        One day's step: first drain existing standing depth by up to
+        drain_mm (see module docstring, "Standing-depth drainage"), then
+        apply `rainfall_mm` (2D array, (height, width), mm, a single day's
+        CHIRPS total) as a pulse, run infiltration + drainage
         once, then route whatever's left downhill along the flow direction
         field -- repeatedly, until every unit of mobile water has either
         settled at a pit or exited via a flat/off-domain boundary (or the
         defensive hop cap is hit; see module docstring for why that's not
         expected to bind).
 
-        Returns (depth_added, n_hops): this day's contribution to standing
-        depth, and how many routing hops it took to converge -- surfaced
-        for smoke-test / validation reporting, not needed for the state
-        update itself (which already happened, on self.water_depth).
+        Returns (depth_added, n_hops): this day's newly-settled contribution
+        to standing depth (pits + capacity-capped excess from today's
+        rainfall only -- does NOT include the standing-depth drainage
+        applied at the top of this call, which reduces self.water_depth
+        directly before depth_added is even computed), and how many
+        routing hops it took to converge. Surfaced for smoke-test /
+        validation reporting, not needed for the state update itself
+        (which already happened, on self.water_depth).
         """
         valid = self.valid_mask
         flow_dir = self.grid.properties["flow_direction"].data.T
+
+        # Standing-depth drainage: reduce whatever's already accumulated
+        # from previous calls by up to drain_mm, floored at zero, BEFORE
+        # today's rainfall enters the picture at all. Applied uniformly to
+        # every valid cell, pits included -- see module docstring for why
+        # pits get no special-casing here (this is a local, target-independent
+        # loss, not routing) and why "before" rather than "after" today's
+        # pipeline (avoids applying drain_mm twice to the same day's fresh
+        # water, which already goes through the per-hop outflow cap below).
+        water_layer = self.grid.properties["water_depth"]
+        standing = water_layer.data.T
+        drained_standing = np.minimum(standing, self.drain_mm)
+        water_layer.data = (standing - drained_standing).T.copy()
+        self.exited_total_mm_cells += float(drained_standing[valid].sum())
 
         water = np.where(valid, rainfall_mm, 0.0).astype("float64")
         infil = np.minimum(water, self.infil_mm)

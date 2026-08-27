@@ -305,18 +305,22 @@ number:
 See `scripts/smoke_test_drainage_scenarios.py` and
 `data/processed/drainage_scenario_comparison.png` for the same-storm,
 same-infiltration, drain_mm-only comparison run against these two
-values: 1.39% flooded (well-maintained) vs 19.27% (poorly-maintained),
-built-up core 5.99% vs 74.48%.
+values, now with recession implemented (`water_depth` drains by up to
+`drain_mm` per cell at the start of each call, before that day's
+rainfall — see CLAUDE.md Phase 3): **final-day (day 3) flooded 0.98%
+(well-maintained) vs 15.82% (poorly-maintained), built-up core 4.28% vs
+68.14%.** Cumulative peak across the 3 days (any cell that crossed
+threshold on any day, whether or not it had receded by day 3): 1.34%
+(well) vs 15.82% (poor) — under well-maintained drainage, 26.7% of
+peak-flooded cells had already receded below threshold by day 3; under
+poor maintenance, essentially none had (0.01%). Not just "floods less,"
+but "clears fast" — a distinct, separate consequence of drainage
+quality from extent alone.
 
-**PROVISIONAL — these are peak-accumulated numbers, not a stable
-result.** `water_depth` currently only ever grows across the 3-day run;
-nothing drains it back down, not between hops, not between days, not
-even through a hypothetical dry day. Every number in this comparison is
-a high-water mark accumulated over June 2-4, not a snapshot that could
-recede the way a real flood does. Treat as provisional until a
-recession mechanism lands (draining standing depth via `drain_mm` over
-subsequent calls — mechanics worked through, not yet implemented) and
-this comparison is re-run. See CLAUDE.md Phase 3 for the fuller note.
+Prior to recession being implemented, this comparison showed 1.39% vs
+19.27% flooded as an add-only, non-receding accumulation — those
+numbers are superseded by the above, kept here only as a record of what
+"provisional" meant at the time.
 
 **Open asymmetry, not urgent, worth revisiting alongside the conveyance
 work:** `drain_mm` still applies uniformly to water/wetland/mangrove

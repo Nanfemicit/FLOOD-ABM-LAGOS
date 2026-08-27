@@ -59,15 +59,17 @@ def run_scenario(data, drain_mm, label):
     model = FloodModel(data["elev"], data["flow_dir"], data["valid"],
                         infil_mm=infil_array, drain_mm=drain_mm)
     hop_counts = []
+    daily_depth_snapshots = []
     for rain in data["daily_rain"]:
         _, n_hops = model.apply_rainfall(rain)
         hop_counts.append(n_hops)
+        daily_depth_snapshots.append(model.water_depth.copy())
     flooded = model.flooded_mask
     print(f"  routing hops per day: {hop_counts} (cap={model.MAX_ROUTING_HOPS})")
-    return model, flooded
+    return model, flooded, daily_depth_snapshots
 
 
-def describe_scenario(data, model, flooded, label):
+def describe_scenario(data, model, flooded, daily_depth_snapshots, label):
     valid = data["valid"]
     n_valid = int(valid.sum())
     n_flooded = int(flooded.sum())
@@ -75,6 +77,21 @@ def describe_scenario(data, model, flooded, label):
     print(f"Flooded: {n_flooded:,} / {n_valid:,} ({100*n_flooded/n_valid:.2f}%)")
     print(f"Max standing depth: {model.water_depth[valid].max():.1f}mm")
     print(f"Exited total: {model.exited_total_mm_cells:,.0f} mm*cells")
+
+    # --- final day vs cumulative peak: only meaningful now that depth can recede ---
+    final_depth = daily_depth_snapshots[-1]
+    peak_depth = np.maximum.reduce(daily_depth_snapshots)
+    final_flooded = (final_depth >= model.flood_threshold_mm) & valid
+    peak_flooded = (peak_depth >= model.flood_threshold_mm) & valid
+    n_final = int(final_flooded.sum())
+    n_peak = int(peak_flooded.sum())
+    receded = int((peak_flooded & ~final_flooded).sum())
+    print(f"\nFinal-day (day 3) flooded: {n_final:,} / {n_valid:,} ({100*n_final/n_valid:.2f}%)")
+    print(f"Cumulative peak (any of the 3 days) flooded: {n_peak:,} / {n_valid:,} ({100*n_peak/n_valid:.2f}%)")
+    print(f"Cells that peaked flooded but had receded below threshold by day 3: {receded:,} "
+          f"({100*receded/n_peak:.2f}% of peak, if peak>0)" if n_peak else "")
+    print(f"Final-day max depth: {final_depth[valid].max():.1f}mm  |  "
+          f"Peak (any day) max depth: {peak_depth[valid].max():.1f}mm")
 
     lc, lc_bands, ward_id, lookup = data["lc"], data["lc_bands"], data["ward_id"], data["lookup"]
     built_up = np.nan_to_num(lc[lc_bands.index("built_up")], nan=0.0)
@@ -130,11 +147,11 @@ def main():
     data = load_grid()
     print("Rainy stretch:", ", ".join(data["daily_labels"]))
 
-    model_wet, flooded_wet = run_scenario(data, 20.0, "WELL-MAINTAINED")
-    stats_wet = describe_scenario(data, model_wet, flooded_wet, "WELL-MAINTAINED (drain_mm=20)")
+    model_wet, flooded_wet, snaps_wet = run_scenario(data, 20.0, "WELL-MAINTAINED")
+    stats_wet = describe_scenario(data, model_wet, flooded_wet, snaps_wet, "WELL-MAINTAINED (drain_mm=20)")
 
-    model_poor, flooded_poor = run_scenario(data, 1.5, "POORLY-MAINTAINED")
-    stats_poor = describe_scenario(data, model_poor, flooded_poor, "POORLY-MAINTAINED (drain_mm=1.5)")
+    model_poor, flooded_poor, snaps_poor = run_scenario(data, 1.5, "POORLY-MAINTAINED")
+    stats_poor = describe_scenario(data, model_poor, flooded_poor, snaps_poor, "POORLY-MAINTAINED (drain_mm=1.5)")
 
     print(f"\n{'='*60}\nCOMPARISON\n{'='*60}")
     print(f"Overall flooded: {100*stats_wet['n_flooded']/stats_wet['n_valid']:.2f}% (well) vs "
