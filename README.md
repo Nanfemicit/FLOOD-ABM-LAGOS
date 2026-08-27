@@ -12,4 +12,3 @@ More about the “why” and insights from the simulations will be added once th
 For now, welcome to the beginning of the Flood Learning ABM.
 
 
-👩🏾‍💻 *Built with heart by Ruth Femicit Dala*
