@@ -1,0 +1,378 @@
+ward_id,wardcode,wardname,lganame
+1,LASAON03,Agboju and Environ,Amuwo Odofin
+2,LASSMU05,Bashua East and West,Shomolu
+3,LASEOA12,Ikoyi 2,Eti Osa
+4,LASMUN04,Babalosa 2,Mushin
+5,LASAMO03,Abesan 2,Alimosho
+6,LASEOA05,Apese / 6 Extension,Eti Osa
+7,LASIKA08,Ojodu,Ikeja
+8,LASEOA20,Victoria Island,Eti Osa
+9,LASEOA11,Ikoyi 1,Eti Osa
+10,LASSUE21,Sanusi 1,Surulere
+11,LASMUN03,Babalosa 1,Mushin
+12,LASAMO02,Abesan 1,Alimosho
+13,LASIKA06,G R A,Ikeja
+14,LASIKA16,Orile Ikeja,Ikeja
+15,LASIKA14,Opebi,Ikeja
+16,LASIKA03,Alade,Ikeja
+17,LASIKA04,Alausa,Ikeja
+18,LASSUE20,Ramoni,Surulere
+19,LASEOA15,Maroko / Okun Alfa,Eti Osa
+20,LASSUE04,Akinhanmi Cole,Surulere
+21,LASIKA11,Olusosun,Ikeja
+22,LASIKA15,Oregun,Ikeja
+23,LASSUE16,Obele Oniwala,Surulere
+24,LASAMO29,Mosan / Akinoggun,Alimosho
+25,LASMUN10,Kayode / Fadeyi,Mushin
+26,LASAMO13,Atan Lagos,Alimosho
+27,LASKSE19,Orile-Ikosi,Kosofe
+28,LASMUN05,Idi-Araba,Mushin
+29,LASIKU17,Isele,Ikorodu
+30,LASIKU26,Olori / Eyita,Ikorodu
+31,LASAON13,Odofin,Amuwo Odofin
+32,LASLMD06,Aloba / Desalu,Lagos Mainland
+33,LASIKU15,Ipakodo,Ikorodu
+34,LASAPA05,Apapa,Apapa
+35,LASIKU28,Owutu,Ikorodu
+36,LASAPA12,Sari,Apapa
+37,LASOJO01,Ajangbadi,Ojo
+38,LASEOA10,Ikate / Lekki,Eti Osa
+39,LASIKA17,Seriki-Aro,Ikeja
+40,LASIKU23,Odogunyan,Ikorodu
+41,LASLID14,Oke-Arin / Idumota,Lagos Island
+42,LASLID12,Lafiaji,Lagos Island
+43,LASIOE10,Ijaiye / Ifako,Ifako/Ijaye
+44,LASKSE20,Orile-Ketu,Kosofe
+45,LASIKA12,Onigbongbo,Ikeja
+46,LASAGG02,Awori Oniwaya,Agege
+47,LASOIO04,Ajao Estate,Oshodi/Isolo
+48,LASKSE15,Ogudu,Kosofe
+49,LASKSE05,Anthony,Kosofe
+50,LASIKU06,Ajaguro,Ikorodu
+51,LASOJO12,Okokomaiko,Ojo
+52,LASEOA04,Ajiran / Osapa,Eti Osa
+53,LASOIO17,Oke-Afa,Oshodi/Isolo
+54,LASAGG08,Orile,Agege
+55,LASEOA06,Badore / Langbasa,Eti Osa
+56,LASEPE18,Papa,Epe
+57,LASAGG12,Powerline / Oko-Oba,Agege
+58,LASIKU05,Aige / Solomade,Ikorodu
+59,LASLMD13,Ojo-Oniyun,Lagos Mainland
+60,LASLMD11,Iponri / Olaleye,Lagos Mainland
+61,LASKSE14,Odo-Ogun / Ajegunle,Kosofe
+62,LASLID09,Idunganran / Idumagbo,Lagos Island
+63,LASEOA02,Addo / Okeira,Eti Osa
+64,LASLID11,Isale Gangan,Lagos Island
+65,LASAPA08,Ijora,Apapa
+66,LASLMD15,Onike / Oyadiran,Lagos Mainland
+67,LASLMD18,Salami /  Baiyewunmi,Lagos Mainland
+68,LASKSE12,Isheri / Olowora,Kosofe
+69,LASATO02,Ajegunle,Ajeromi/Ifelodun
+70,LASLID15,Oke-Olowogbowo,Lagos Island
+71,LASSMU12,Onipanu,Shomolu
+72,LASAPA06,Badia,Apapa
+73,LASAGG07,Okekoto,Agege
+74,LASAGG05,Isale Oja,Agege
+75,LASBDY18,Posukoh,Badagry
+76,LASEPE04,Ajaganabe,Epe
+77,LASAGG09,Oyewole / Alaagba,Agege
+78,LASOIO05,Akingbaye,Oshodi/Isolo
+79,LASLMD14,Okobaba,Lagos Mainland
+80,LASLMD07,Araromi,Lagos Mainland
+81,LASIKU12,Erikorodo,Ikorodu
+82,LASIKA05,Anifowoshe,Ikeja
+83,LASOIO18,Okota,Oshodi/Isolo
+84,LASLMD01,Abule Ijesha,Lagos Mainland
+85,LASLMD05,Alagomeji,Lagos Mainland
+86,LASMUN02,Alakara,Mushin
+87,LASOJO11,Ojo Town,Ojo
+88,LASKSE06,Araromi / Ifako,Kosofe
+89,LASIKU24,Oke-Eletu / Abule-Eko,Ikorodu
+90,LASEOA03,Ajah,Eti Osa
+91,LASOIO14,Ishaga / Ire-Akari,Oshodi/Isolo
+92,LASAON12,Kuje,Amuwo Odofin
+93,LASKSE04,Agiliti / Maidan,Kosofe
+94,LASLMD12,Makoko,Lagos Mainland
+95,LASATO05,Amukoko,Ajeromi/Ifelodun
+96,LASSMU04,Bajulaiye,Shomolu
+97,LASSMU06,Ibuowo / Owotutu,Shomolu
+98,LASIKU03,Agbala /  Lasunwon,Ikorodu
+99,LASOIO10,Ifoshin,Oshodi/Isolo
+100,LASIKU02,Aga / Ijomu,Ikorodu
+101,LASIKA07,Ogba / Oluwole,Ikeja
+102,LASLMD10,Harvey,Lagos Mainland
+103,LASBDY13,Ilogbo,Badagry
+104,LASAON01,Abule Osun Onireke,Amuwo Odofin
+105,LASIKU04,Agura / Gberigbe,Ikorodu
+106,LASSMU02,Akoka / Anu-Oluwapo,Shomolu
+107,LASEPE06,Bado / Ebole / Etita / Iberikodo,Epe
+108,LASLID18,Oko-Awo / Agarawu,Lagos Island
+109,LASLID04,Araromi Odo,Lagos Island
+110,LASLID19,Olosun / Ojo Oto,Lagos Island
+111,LASLID13,Odam,Lagos Island
+112,LASLID16,Okepopo East,Lagos Island
+113,LASLID05,Balogun,Lagos Island
+114,LASLID10,Ilupesi / Ebute Awo,Lagos Island
+115,LASATO11,Ojora Amukoko,Ajeromi/Ifelodun
+116,LASATO04,Alakoto / Ibafon,Ajeromi/Ifelodun
+117,LASAPA10,Oduduwa,Apapa
+118,LASLID20,Oluwole,Lagos Island
+119,LASLID03,Anikantamo,Lagos Island
+120,LASLID08,Idumoyingbo,Lagos Island
+121,LASLID01,Ajele,Lagos Island
+122,LASATO03,Alaba,Ajeromi/Ifelodun
+123,LASSUE17,Odo-Olowu,Surulere
+124,LASATO06,Apasa Amukoko,Ajeromi/Ifelodun
+125,LASATO15,Temidire,Ajeromi/Ifelodun
+126,LASATO01,Aiyetoro,Ajeromi/Ifelodun
+127,LASATO07,Awodi-Ora,Ajeromi/Ifelodun
+128,LASATO10,Layeni-Okoya,Ajeromi/Ifelodun
+129,LASATO09,Ibafon,Ajeromi/Ifelodun
+130,LASATO16,Tolu,Ajeromi/Ifelodun
+131,LASATO08,Bale Alayabiagba,Ajeromi/Ifelodun
+132,LASATO13,Oluwa / Akere,Ajeromi/Ifelodun
+133,LASATO12,Oke Oja,Ajeromi/Ifelodun
+134,LASAPA03,Alafia,Apapa
+135,LASEOA14,Kuramo School / Lekki,Eti Osa
+136,LASAPA09,Marine Beach,Apapa
+137,LASEOA13,Ilasan / Orile,Eti Osa
+138,LASAPA07,Gaskiya,Apapa
+139,LASAPA11,Owoseni,Apapa
+140,LASEOA07,Falomo / Oyinkan Abayomi,Eti Osa
+141,LASEOA09,Ijeh / Dolphin Estate,Eti Osa
+142,LASEOA16,Obalende,Eti Osa
+143,LASEOA08,Igbo-Efon / Maiyegun,Eti Osa
+144,LASIOE01,Abule Egba / Ilupeju,Ifako/Ijaye
+145,LASIOE09,Ijaiye Oke-Ira,Ifako/Ijaye
+146,LASIOE08,Ijaiye Ojokoro,Ifako/Ijaye
+147,LASIOE12,Iju Obawole,Ifako/Ijaye
+148,LASIOE02,Agbado Dalemo,Ifako/Ijaye
+149,LASIOE05,Ifako Pele,Ifako/Ijaye
+150,LASIOE07,Ijaiye Gbirinmi,Ifako/Ijaye
+151,LASAGG11,Papa Uku /  Olusanya,Agege
+152,LASIOE13,Iju Ogundimu,Ifako/Ijaye
+153,LASIOE03,Alagbado / Kollinton,Ifako/Ijaye
+154,LASAON07,Ifelodun,Amuwo Odofin
+155,LASAON04,Eko Akete,Amuwo Odofin
+156,LASAON14,Orire,Amuwo Odofin
+157,LASSUE03,Airways,Surulere
+158,LASKSE08,Bamgbe / Elebiju,Kosofe
+159,LASAGG03,Dopemu,Agege
+160,LASAGG10,Papa Ashafa,Agege
+161,LASAGG06,Keke,Agege
+162,LASAGG01,Atobaje,Agege
+163,LASAGG04,Isale Odo / Ayige,Agege
+164,LASAGG13,Sango,Agege
+165,LASOJO07,Ilogbo- Elegba,Ojo
+166,LASOJO14,Sabo-Oniba,Ojo
+167,LASIKA02,Akiode,Ikeja
+168,LASLMD17,Oyingbo,Lagos Mainland
+169,LASOJO05,Igbo-Elerin,Ojo
+170,LASOJO08,Ira,Ojo
+171,LASOJO10,Kemberi,Ojo
+172,LASKSE09,Erukan / Orishigun,Kosofe
+173,LASSUE18,Ogunsami / Karounwi,Surulere
+174,LASIKA09,Oke-Ira Central,Ikeja
+175,LASIKA01,Aguda,Ikeja
+176,LASIKA18,Wasimi,Ikeja
+177,LASIKU29,Sholafun / Agbele,Ikorodu
+178,LASKSE17,Olubori / Mosafejo,Kosofe
+179,LASSUE05,Aralile,Surulere
+180,LASIKU01,Abosan,Ikorodu
+181,LASIKU20,Itunpate / Itumaja,Ikorodu
+182,LASIKU27,Olorunda,Ikorodu
+183,LASKSE18,Orile Oworo,Kosofe
+184,LASKSE03,Agidi / Orishigun,Kosofe
+185,LASKSE10,Idera,Kosofe
+186,LASKSE13,Mende,Kosofe
+187,LASKSE07,Arowosegbe / Alapere,Kosofe
+188,LASKSE16,Ojota,Kosofe
+189,LASLMD03,Adekunle / Aiyetoro,Lagos Mainland
+190,LASLMD09,Freeman / Glover,Lagos Mainland
+191,LASLMD04,Aderupoko / Ijebu Qters,Lagos Mainland
+192,LASOIO06,Alagbeji,Oshodi/Isolo
+193,LASLMD16,Otto,Lagos Mainland
+194,LASOIO15,Mafoluku,Oshodi/Isolo
+195,LASOIO11,Igbehinadun,Oshodi/Isolo
+196,LASOIO03,Ailegun,Oshodi/Isolo
+197,LASOIO08,Ewutuntun,Oshodi/Isolo
+198,LASOIO16,Ogunnoloko,Oshodi/Isolo
+199,LASSUE22,Savage,Surulere
+200,LASSUE09,Coker,Surulere
+201,LASOIO02,Aigbaka,Oshodi/Isolo
+202,LASOIO20,Shogunle,Oshodi/Isolo
+203,LASOIO19,Oluyeye,Oshodi/Isolo
+204,LASOIO13,Ilasamaja,Oshodi/Isolo
+205,LASOIO01,Afariogun,Oshodi/Isolo
+206,LASOIO07,Apena,Oshodi/Isolo
+207,LASOIO09,Fadu,Oshodi/Isolo
+208,LASSUE02,Agunbiade,Surulere
+209,LASSUE23,Shitta Bank Olemoh,Surulere
+210,LASSUE14,Mosafejo Ojuelegba,Surulere
+211,LASSUE12,Irone,Surulere
+212,LASSUE11,Iponri  /  Eric Moore,Surulere
+213,LASSUE10,Gbaja Obele-Odan,Surulere
+214,LASSUE01,Adeniran Ogunsanya,Surulere
+215,LASSUE15,Nuru Oniwo,Surulere
+216,LASSUE07,Bale,Surulere
+217,LASSUE06,Babatunde Ayilara,Surulere
+218,LASSUE08,Baruwa,Surulere
+219,LASSUE19,Osho,Surulere
+220,LASSUE13,Jinadu Aiyetoro,Surulere
+221,LASSMU10,Ilaje,Shomolu
+222,LASSMU15,Pedro / Gbagada,Shomolu
+223,LASSMU01,Aiyetoro / Mafowoku,Shomolu
+224,LASSMU13,Orile Somolu / Alade,Shomolu
+225,LASSMU16,Seriki-Okuta,Shomolu
+226,LASSMU03,Apelehin,Shomolu
+227,LASSMU09,Ijebu Tedo,Shomolu
+228,LASSMU07,Igbari,Shomolu
+229,LASSMU11,Okesuna / Alase,Shomolu
+230,LASSMU14,Owode  / Orile Bariga,Shomolu
+231,LASIOE06,Ifako / Coker,Ifako/Ijaye
+232,LASMUN13,Odo Eran / Ogunlana,Mushin
+233,LASMUN19,Papa Ajao,Mushin
+234,LASAMO32,Oki,Alimosho
+235,LASMUN07,Igbehin,Mushin
+236,LASMUN01,Alafia / Adeoyo,Mushin
+237,LASAMO23,Igando,Alimosho
+238,LASAMO21,Gowon Estate,Alimosho
+239,LASMUN18,Owodunni,Mushin
+240,LASAMO27,Isheri Oshun,Alimosho
+241,LASAMO25,Ikotun,Alimosho
+242,LASMUN09,Ilupeju Industrial,Mushin
+243,LASAMO18,Egbe-Agodo,Alimosho
+244,LASAMO30,Oguntade / Bameke,Alimosho
+245,LASAMO04,Aboru,Alimosho
+246,LASMUN17,Onitire,Mushin
+247,LASAMO08,Akesan-Obadore,Alimosho
+248,LASAMO36,Unity Estate,Alimosho
+249,LASAMO14,Ayobo,Alimosho
+250,LASAMO06,Agbelekale,Alimosho
+251,LASMUN15,Ojuwoye,Mushin
+252,LASAMO34,Omituntun-Olori,Alimosho
+253,LASAMO16,Baruwa,Alimosho
+254,LASMUN11,Moshalashi / Agoro,Mushin
+255,LASAMO12,Alaguntan,Alimosho
+256,LASAMO28,Isheri-Olofin,Alimosho
+257,LASAMO10,Alabata,Alimosho
+258,LASMUN06,Idi-Oro / Odi Olowo,Mushin
+259,LASAMO22,Idimu,Alimosho
+260,LASAMO20,Egbe-Liasu,Alimosho
+261,LASAMO26,Ipaja,Alimosho
+262,LASAMO01,Abaranje / Okerube,Alimosho
+263,LASAMO31,Oke-Odo,Alimosho
+264,LASAMO07,Ajasa / Amikanle,Alimosho
+265,LASMUN16,Olateju,Mushin
+266,LASAMO33,Okunola,Alimosho
+267,LASAMO17,Egan,Alimosho
+268,LASAMO19,Egbeda,Alimosho
+269,LASAMO09,Akowonjo / Ilupeju,Alimosho
+270,LASMUN14,Oduselu / Ola,Mushin
+271,LASAMO35,Santos / Ilupeju,Alimosho
+272,LASMUN12,Mushin / Atewolara,Mushin
+273,LASKSE21,Shangisha / Magodo,Kosofe
+274,LASKSE11,Ikosi-Oke,Kosofe
+275,LASBDY11,Ibereko,Badagry
+276,LASIOE11,Iju Ishaga,Ifako/Ijaye
+277,LASIOE14,Tabon Tabon / Egbir,Ifako/Ijaye
+278,LASIOE04,Alakuko Ajegunle,Ifako/Ijaye
+279,LASAMO11,Alagbado / Alakuko,Alimosho
+280,LASIKA10,Oke-Ira Powerline,Ikeja
+281,LASAON11,Kirikiri and Environ,Amuwo Odofin
+282,LASAON06,Ibeshe and Environ,Amuwo Odofin
+283,LASIUI10,Orimedu 3,Ibeju Lekki
+284,LASIUI09,Orimedu 2,Ibeju Lekki
+285,LASIUI02,Ibeju 2,Ibeju Lekki
+286,LASIUI07,Lekki 2,Ibeju Lekki
+287,LASKSE02,Agboyi 2,Kosofe
+288,LASIUI05,Iwerekun 2,Ibeju Lekki
+289,LASIUI12,Siriwon /  Igbekodo 2,Ibeju Lekki
+290,LASEPE02,Agbowa 2 / Ado,Epe
+291,LASEPE01,Agbowa 1,Epe
+292,LASIUI06,Lekki 1,Ibeju Lekki
+293,LASKSE01,Agboyi 1,Kosofe
+294,LASIUI08,Orimedu 1,Ibeju Lekki
+295,LASIUI01,Ibeju 1,Ibeju Lekki
+296,LASIUI11,Siriwon /  Igbekodo 1,Ibeju Lekki
+297,LASIUI04,Iwerekun 1,Ibeju Lekki
+298,LASBDY12,Ikoga,Badagry
+299,LASLMD08,Botanical Garden,Lagos Mainland
+300,LASBDY15,Iworo-Gbanko,Badagry
+301,LASBDY17,Kweme,Badagry
+302,LASKSE22,Ikosi Isheri,Kosofe
+303,LASEPE13,Naforija / Poka,Epe
+304,LASAON08,Ijegun,Amuwo Odofin
+305,LASBDY04,Ajido,Badagry
+306,LASBDY07,Aradagun-Mowo,Badagry
+307,LASEPE09,Ifesowapo / Temu Oke-Oso,Epe
+308,LASIKU09,Baiyeku / Orita / Offin,Ikorodu
+309,LASOJO09,Irewe,Ojo
+310,LASBDY02,Ajara Topa,Badagry
+311,LASLMD02,Abule Oja,Lagos Mainland
+312,LASBDY19,Topo-Idale,Badagry
+313,LASEPE07,Ejirin / Ketu,Epe
+314,LASIKU13,Ibeshe,Ikorodu
+315,LASEPE03,Aiyetoro / Lagbade / Agbala / Olota,Epe
+316,LASIKU11,Elepe,Ikorodu
+317,LASIKU07,Atere,Ikorodu
+318,LASIKU21,Maja,Ikorodu
+319,LASBDY06,Apa,Badagry
+320,LASIKU19,Itumokun,Ikorodu
+321,LASIKU25,Oke-Oyinbo /  Aiyetoro,Ikorodu
+322,LASBDY14,Isalu / Iyafin,Badagry
+323,LASEPE14,Odomola,Epe
+324,LASIKU18,Isiu,Ikorodu
+325,LASIKU08,Ayegbami / Odoro,Ikorodu
+326,LASEPE08,Ibonwon,Epe
+327,LASEOA17,Okun Ajah / Okunmopo,Eti Osa
+328,LASOJO06,Ijanikin,Ojo
+329,LASOJO04,Iba,Ojo
+330,LASAON02,Ado Soba,Amuwo Odofin
+331,LASAON10,Irepodun,Amuwo Odofin
+332,LASIKU22,Majidun,Ikorodu
+333,LASAON05,I Irede,Amuwo Odofin
+334,LASBDY03,Ajara Vetho,Badagry
+335,LASEPE05,Ajebo Orugbo,Epe
+336,LASBDY05,Akoro,Badagry
+337,LASEOA18,Sangotedo,Eti Osa
+338,LASLID06,Epetedo East,Lagos Island
+339,LASEPE15,Odoragunsin,Epe
+340,LASBDY09,Awhanjigoh,Badagry
+341,LASBDY01,Ahovikoh,Badagry
+342,LASBDY16,Jegba Quarters,Badagry
+343,LASBDY20,Wesere,Badagry
+344,LASIUI03,Ise / Igbogun,Ibeju Lekki
+345,LASLID17,Okepopo West,Lagos Island
+346,LASLID07,Epetedo West,Lagos Island
+347,LASATO14,Owoyemi,Ajeromi/Ifelodun
+348,LASBDY10,Gbethrome,Badagry
+349,LASEPE19,Sagida / Okeposu,Epe
+350,LASAPA04,Anjorin,Apapa
+351,LASAPA01,Abete,Apapa
+352,LASEPE11,Mayunre-Oriba,Epe
+353,LASEPE10,Ilara,Epe
+354,LASEOA01,1004 / Aboyade,Eti Osa
+355,LASEPE17,Owu / Ota,Epe
+356,LASEPE12,Mayunre-Oriba / Orepete-Ito Omu,Epe
+357,LASEPE16,Olugbokere / Abomiti,Epe
+358,LASAON09,Ilado Tomaro,Amuwo Odofin
+359,LASOJO03,Etegbin,Ojo
+360,LASOJO02,Egan,Ojo
+361,LASOJO15,Taffi,Ojo
+362,LASIKU14,Igbokuta / Oke-Agbo / Igbalu,Ikorodu
+363,LASIKA13,Onilekere,Ikeja
+364,LASIKU10,Egbin / Itunoliwo,Ikorodu
+365,LASIKU30,Tonabu / Opopo,Ikorodu
+366,LASOIO12,Ilamoshe,Oshodi/Isolo
+367,LASSMU08,Igbobi / Fadeyi,Shomolu
+368,LASLID02,Alagba / Obadina,Lagos Island
+369,LASMUN08,Ilupeju,Mushin
+370,LASAMO15,Bada-Megida,Alimosho
+371,LASAMO24,Ijegun,Alimosho
+372,LASAMO05,Abule Egba,Alimosho
+373,LASOJO13,Oto-Awori,Ojo
+374,LASIKU16,Isawo,Ikorodu
+375,LASEOA19,Tarkwa Bay,Eti Osa
+376,LASAPA02,Abraham Adesanya,Apapa
+377,LASBDY08,Araromi-Ale,Badagry

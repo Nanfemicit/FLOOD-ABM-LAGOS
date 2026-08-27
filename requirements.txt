@@ -4,3 +4,6 @@ streamlit
 geopandas
 matplotlib
 rasterio
+pysheds
+mesa
+scipy
