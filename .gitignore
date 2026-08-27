@@ -16,4 +16,4 @@ data/raw/**/_source_cache/
 # Working notes -- Claude Code session context, not meant to be tracked
 # (was briefly committed 6265ed6..b4feda6; untracked via git rm --cached,
 # left in local history rather than rewritten -- see commit message)
-CLAUDE.md
+log.md
