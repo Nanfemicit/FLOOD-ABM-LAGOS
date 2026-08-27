@@ -100,7 +100,7 @@ Important distinction to hold onto: "starting fresh" means a new environment lay
 - Tag each cell with elevation, land cover class, ward ID
 
 **Phase 3 — Recouple parameters to real records**
-- Calibrate storm intensity/duration against actual historical Lagos rainfall events from CHIRPS, not arbitrary slider ranges
+- Calibrate storm intensity/duration against actual historical Lagos rainfall events from CHIRPS, not arbitrary slider ranges. **When selecting which storm event(s) to calibrate against, weigh proximity to the 2021 land cover snapshot alongside how well-documented and severe the flood event was. These two criteria may pull toward different years — a well-documented severe flood far from 2021 vs. a closer-to-2021 event with thinner documentation — and that tension should be named explicitly when the choice is made, not resolved by default toward whichever criterion is easiest to satisfy.**
 - Add a first-pass vulnerability layer per ward (population density or income proxy) — this is where the human-cost argument becomes spatial and the MEGADAPT framing becomes concretely implementable
 
 **Phase 4 — Interactive layer**
