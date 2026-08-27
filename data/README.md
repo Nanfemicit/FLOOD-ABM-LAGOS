@@ -212,3 +212,119 @@ year" calibration question, but it's still a 2021 snapshot being paired
 with 2025 rainfall and a boundary layer of unclear vintage — worth a
 running note if temporal mismatch between layers ever becomes a modeling
 concern.
+
+## Infiltration parameterization (model parameter, not a raw pull)
+
+**File:** sourcing lives in `model/flood_model.py`
+(`INFILTRATION_RATES_MM_HR` / `compute_infiltration_rate()`); not a
+downloaded dataset, but documented here at the same standard as the four
+raw sources above since it's an external-literature-grounded parameter,
+not an invented number.
+
+**Source:** replaced the legacy flat 10mm/hr infiltration guess with a
+per-cell rate blended from the land cover fractions already in
+`lagos_landcover_100m.tif`, grounded in the SCS/NRCS curve number
+method. Searched first for a Lagos or coastal-Nigeria-specific measured
+infiltration rate table — none found. What exists: Lagos hydrogeology
+literature confirms the city sits on naturally sandy, high-infiltration
+Coastal Plain Sands ([Hydrogeology of Lagos
+metropolis](https://www.researchgate.net/publication/240400365_Hydrogeology_of_Lagos_metropolis)),
+and a Lagos-specific groundwater recharge model found urbanization has
+already cut simulated recharge by ~50% over 2000–2020, with the
+built-up core recharging markedly less than the vegetated fringe
+([Copernicus/ADGEO
+2022](https://adgeo.copernicus.org/articles/59/53/2022/)) — consistent
+with, but not a substitute for, a literal rate table. A southwest-Nigeria
+infiltration study (Adelana 2024, *LAUTECH J. Eng. Technol.* 18(3):7–20)
+measured actual urban infiltration rates by land use, but in Akure,
+~300km from Lagos on crystalline basement-complex geology, not Lagos's
+coastal sedimentary sands — treated as regional context, not a
+transferable number.
+
+Fell back to the SCS/NRCS method as an established engineering
+methodology rather than inventing a number. Two primary sources, both
+fetched and read directly (not from a secondary summary):
+**TR-55** (NRCS, 1986), *Urban Hydrology for Small Watersheds*, Table
+2-2a, and **National Engineering Handbook Part 630, Chapter 7**
+(NRCS, Jan 2009), *Hydrologic Soil Groups*, Table 7-1.
+
+**What it actually is:** a per-cell weighted blend —
+`infil_mm[cell] = Σ (class_fraction[cell, c] × rate[c])` — using the
+fractional land cover composition already computed per cell (not a
+single dominant class), so it reuses `lagos_landcover_100m.tif` directly
+with no new data pull needed.
+
+| Class | Rate (mm/hr) | Basis |
+|---|---|---|
+| built_up | 0 | Impervious; TR-55 Table 2-2a note 2 — paved surfaces get CN=98 regardless of soil group |
+| water_permanent, wetland_herbaceous, mangroves | 0 | NEH 630.0701 — soils with a water table within 60cm of the surface are Group D regardless of texture; already-saturated ground (or open water) can't absorb more |
+| tree_cover | 36.1 | Group A (Lagos's natural sandy substrate, best structural condition); NEH Table 7-1, Ksat >10.0 µm/s boundary, "deep soil / water table >100cm" row |
+| grassland, shrubland, bare_sparse_veg, cropland | 14.5 | Group B (same substrate, less structural protection than tree canopy, or tillage compaction for cropland); NEH Table 7-1 B-range lower bound |
+
+**Known quality issue / deliberate convention:** every rate is the
+**lower bound** of its HSG's documented range wherever that range is
+open-ended or wide — applied consistently across every class, not
+picked per-class to hit a particular result. This is a conservative,
+flood-risk-leaning choice, made explicitly rather than defaulting to a
+range midpoint or upper bound. cropland is folded into the same rate as
+grassland/shrubland rather than given a separate Group C treatment;
+it's under 0.5% of the Lagos grid, so the distinction has negligible
+effect on model behavior either way.
+
+**Order-of-operations finding:** infiltration is subtracted from every
+valid cell before the routing loop classifies pit/flat/directed cells,
+so it also runs on water/wetland/mangrove cells before their
+absorbing-boundary treatment takes over. Under the old flat 10mm/hr
+constant this meant those cells were silently losing up to 10mm/hr to
+infiltration that shouldn't apply to open water, slightly
+under-reporting `exited_total_mm_cells`. Setting those classes to 0mm/hr
+fixes this as a side effect, not just a no-op. `drain_mm` still applies
+uniformly to those cells, unchanged — same category of mismatch, left
+alone since `drain_mm` was deliberately kept out of scope for this pass.
+
+**Modeling decision — drainage capacity stays an explicit scenario
+range, not a single value:** searched for a Lagos/Nigeria-specific
+quantitative drainage-capacity-degradation figure and didn't find one.
+What's well-documented instead is *qualitative* confirmation that
+severe degradation is common: a Nigerian field study (Oluwaseun et al.
+2020, *LAUTECH J. Civil Environ. Stud.* 4(1):107–122, Ilorin — not
+Lagos, but same country) found frequency of drainage maintenance was
+the strongest statistical predictor of flood occurrence among 200
+surveyed households, with blockage from dumped solid waste as the
+leading cited cause — consistent with common Lagos flood reporting
+(canals silted, built over, or absent in informal settlements). Proposed
+`drain_mm` range, anchored at both ends rather than presented as one
+number:
+- **well-maintained**: 20mm/hr — a standard minor urban drainage design
+  intensity (commonly 12.5–25mm/hr in tropical/humid design practice).
+  Explicitly a design-standard convention, not a Lagos measurement.
+- **poorly-maintained**: 1.5mm/hr — reflecting the commonly-documented
+  reality that many Lagos drains function far below design capacity or
+  not at all, not a formula-derived degradation percentage.
+
+See `scripts/smoke_test_drainage_scenarios.py` and
+`data/processed/drainage_scenario_comparison.png` for the same-storm,
+same-infiltration, drain_mm-only comparison run against these two
+values: 1.39% flooded (well-maintained) vs 19.27% (poorly-maintained),
+built-up core 5.99% vs 74.48%.
+
+**PROVISIONAL — these are peak-accumulated numbers, not a stable
+result.** `water_depth` currently only ever grows across the 3-day run;
+nothing drains it back down, not between hops, not between days, not
+even through a hypothetical dry day. Every number in this comparison is
+a high-water mark accumulated over June 2-4, not a snapshot that could
+recede the way a real flood does. Treat as provisional until a
+recession mechanism lands (draining standing depth via `drain_mm` over
+subsequent calls — mechanics worked through, not yet implemented) and
+this comparison is re-run. See CLAUDE.md Phase 3 for the fuller note.
+
+**Open asymmetry, not urgent, worth revisiting alongside the conveyance
+work:** `drain_mm` still applies uniformly to water/wetland/mangrove
+cells even though infiltration no longer does (see the order-of-operations
+finding above). Now that `drain_mm` also does double duty as the per-hop
+outflow conveyance cap in `model/flood_model.py`'s routing loop (added
+after this entry was first written), this is worth a closer look
+alongside that same piece of work rather than as a separate cleanup --
+both are really the same underlying question (does "drainage capacity"
+mean the same thing for a cell that's already open water as it does for
+dry land), but resolving it isn't blocking anything right now.
