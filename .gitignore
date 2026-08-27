@@ -3,10 +3,11 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
-# Local caches of raw downloaded source tiles (full global/regional extents
+# Local caches of raw downloaded source files (full global/regional extents
 # before clipping to Lagos) — regenerable via the scripts/fetch_*.py scripts,
 # not meant to be committed.
 data/raw/**/_tile_cache/
+data/raw/**/_source_cache/
 
 # Local env
 .venv/
